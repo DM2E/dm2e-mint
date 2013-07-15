@@ -33,7 +33,7 @@ create table users (
 
 -- Super user has 31 lower bits set. I didnt want to touch the sign bit, scared of complications --
 insert into users( users_id, first_name, last_name, email, login, md5_password, active_account, rights , account_created ) values
- ( 1000, 'CARARE', 'Admin', 'stabenau@image.ntua.gr', 'admin', md5( 'admin' || 'm1st1k0' ), true, ~(1<<31), '20012-01-01' );
+ ( 1000, 'DM2E', 'Admin', 'mint-support@image.ece.ntua.gr', 'admin', md5( 'admin' || 'admin' ), true, ~(1<<31), '20012-01-01' );
 
 create sequence seq_organization_id start with 1001;
 create table organization (

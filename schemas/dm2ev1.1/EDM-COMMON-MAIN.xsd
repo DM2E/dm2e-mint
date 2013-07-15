@@ -124,7 +124,7 @@
                         <element ref="dm2e:restoration" maxOccurs="unbounded" minOccurs="0"/>
                         <element ref="dm2e:support" maxOccurs="unbounded" minOccurs="0"/>
                         <element ref="dm2e:cover" maxOccurs="unbounded" minOccurs="0"/>
-                        <element ref="edm:isRelatedTo" maxOccurs="unbounded" minOccurs="1"/>
+                        <element ref="edm:isRelatedTo" maxOccurs="unbounded" minOccurs="0"/>
                         <element ref="edm:hasMet" maxOccurs="unbounded" minOccurs="0"/>
                         <element ref="dm2e:pageDimension" maxOccurs="1" minOccurs="0"/>
                         <element ref="dm2e:writtenAreaDimensions" maxOccurs="1" minOccurs="0"/>

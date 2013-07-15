@@ -91,56 +91,8 @@ deploy_target=${deploy_target}
 build-time=${NOW}</echo>
 	</target>
 	
-	<target name="dist" depends="dist_base, dist_custom" />
 	
 	
-	<target name="dist_custom" depends="dist_base" if="custom" >
-		<echo message="Copying custom resources..." />
-		<copy todir="${dist}/${appname}/custom/${custom}">
-			<fileset dir="custom/${custom}" />
-		</copy>
-	</target>
-		
-	<target name="dist_base" depends="instrument, properties"
-        description="generate the distribution" >
-		<echo message="Generating distribution..." />
-		<mkdir dir="${dist}/${appname}"/>
-		<echo message="Copying css..." />
-		<copy todir="${dist}/${appname}/css">
-			<fileset dir="css" />
-		</copy>
-		<echo message="Copying template..." />
-		<copy todir="${dist}/${appname}/template" >
-			<fileset dir="template" />
-		</copy>
-		<echo message="Copying images..." />
-		<copy todir="${dist}/${appname}/images" >
-			<fileset dir="images" />
-		</copy>
-		<echo message="Copying js..." />
-		<copy todir="${dist}/${appname}/js">
-			<fileset dir="js" />
-		</copy>
-		<echo message="Copying schemas..." />
-		<copy todir="${dist}/${appname}/schemas">
-			<fileset dir="schemas" />
-		</copy>
-		<echo message="Copying xsl..." />
-		<copy todir="${dist}/${appname}/xsl">
-			<fileset dir="xsl" />
-		</copy>
-		<echo message="Copying scripts..." />
-		<copy todir="${dist}/${appname}/scripts">
-			<fileset dir="scripts" />
-		</copy>
-		<echo message="Copying WEB-INF..." />
-		<copy todir="${dist}/${appname}/WEB-INF">
-			<fileset dir="WEB-INF" />
-		</copy>
-		<echo message="Copying index.html..." />
-		<copy tofile="${dist}/${appname}/index.html" file="index.html"/>
-		<copy tofile="${dist}/${appname}/build.properties" file="build.properties"/>
-	</target>
 
 	<target name="clean"
         description="clean up" >
@@ -150,15 +102,6 @@ build-time=${NOW}</echo>
 	</target>
 
 
-	<import file="WEB-INF/deploy/${deploy_target}/deploy.xml" optional="true" />
-	
-	<target name="modify" depends="dist" >
-		<antcall target="modify-specific"/>
-	</target>
-	
-	<target name="deploy" depends="modify, dist" if="deploy_target">
-		<antcall target="deploy-specific"/>
-	</target>
 	
     <target name="doc">
        <javadoc destdir="docs/mint2" 
